@@ -8,7 +8,7 @@
 #
 echo Generating 1000000 random numbers
 sleep 1
-./generate 100 -1000000 1000000 # you have to write generate.cpp
+./generate 1000000 -1000000 1000000 # you have to write generate.cpp
 sleep 1
 echo Starting system sort
 sleep 1
