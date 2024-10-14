@@ -30,12 +30,12 @@ int main(int argc, char *argv[]){
     int MIN = stoi(argv[2]);
     int MAX = stoi(argv[3]);
 
+    srand(time(0));
     ofstream fout;
     fout.open("numbers.dat", ios::out);
 
     for (int j = 0; j < COUNT; j++){
-        int num;
-        fout << (rand() % (MAX - MIN + 1) + MIN) << endl;
+        fout << (rand() % (MAX-MIN+1) + MIN) << endl;
     }
 
     fout.close();
