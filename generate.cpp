@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
     exit(EXIT_SUCCESS);
   }
 
-   cout << "Generating " << argv[1] << " random numbers\n";
+   //cout << "Generating " << argv[1] << " random numbers\n";
 
   for (int i=0; i<argc; i++)
   {
