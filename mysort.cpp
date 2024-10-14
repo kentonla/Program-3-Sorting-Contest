@@ -10,8 +10,17 @@
 #include <fstream>
 using namespace std;
 
-void bubble(int A[], int size){
-
+void bubble(int A[], int size)
+{
+  for (int i = 1; i < size; i++) {
+    for (int j = 0; j < size-1; j++) {
+      if (A[j] > A[j+1]) {
+        int temp = A[j];
+        A[j] = A[j+1];
+        A[j+1] = temp;
+      }
+    }
+  }
 }
 
 int main(int argc, char* argv[]){
@@ -22,19 +31,31 @@ int main(int argc, char* argv[]){
         cout << "Example: ./mysort numbers.dat mysort.out\n";
         exit(EXIT_SUCCESS);
     }
-    ofstream fout;
     ifstream fin;
     int n;
     int count = 0;
     fin.open(argv[1]);
-    fout.open(argv[2], ios::out | ios::trunc);
-    while (fin >> n){
-        fout << n << endl;
-        count++;
+    ofstream fout(argv[2]);
+    int numbers[1000000];
+    int size = 0;
+    string num;
+    while (getline(fin, num, '\n')){
+      if (size < 1000000){
+        numbers[size++] = stoi(num);
+      }
     }
+    
+    cout << "Starting Array buble sort with 1000000 items";
+    bubble(numbers, size);
+    cout << "Ending bubble sort\n";
+
+    for (int i = 0; i < size; i++){
+      fout << numbers[i] << '\n';
+    }
+
     fout.close();
     fin.close();
 
-    cout << count << " numbers sorted and transferred from " << argv[1] << " to " << argv[2] << endl;
+    cout << size << " numbers sorted and transferred from " << argv[1] << " to " << argv[2] << endl;
     return 0;
 }
