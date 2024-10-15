@@ -45,7 +45,7 @@ int main(int argc, char* argv[]){
       }
     }
     
-    cout << "Starting Array buble sort with 1000000 items";
+    cout << "Starting Array buble sort with 1000000 items\n";
     bubble(numbers, size);
     cout << "Ending bubble sort\n";
 
